@@ -1,25 +1,19 @@
 const mongoose = require('mongoose');
 
 const todoSchema = mongoose.Schema({
-    name: {
+    title: {
         type: String,
         required: true,
     },
-    roll: {
+    description: {
         type: String,
         required: true,
-        unique: true,
     },
-    registration: {
-        type: String,
-        required: true,
-        unique: true,
-    },
-    subjects: {
-        type: [String],
+    completed: {
+        type: Boolean,
         required: true,
     },
-    registered_on: {
+    created_on: {
         type: Date,
         default: new Date(),
     },
