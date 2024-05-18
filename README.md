@@ -38,7 +38,7 @@ Add the following environment variables to the .env file:
 
 env
 Copy code
-PORT=3000
+PORT=9000
 MONGO_URI=mongodb:http://localhost:9000/todos/
 Adjust the MONGO_URI if you are using a remote MongoDB instance.
 
@@ -144,4 +144,4 @@ Copy code
 License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-Feel free to contribute to this project by submitting issues or pull requests. Happy coding!
+Feel free to contribute to this project by submitting issues or pull requests. <br> Happy coding!
