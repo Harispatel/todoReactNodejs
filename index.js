@@ -1,29 +1,22 @@
 const express = require('express');
-const mongoose = require('mongoose');
+const connectDB = require('./config/db');
 const todorouter= require("./Routes/todoRouts");
+const authrouter= require("./Routes/auth");
 const app = express();
 
+// Connect Database
+connectDB();
 
-const url = "mongodb+srv://harispatel62:4asklccb@hspdev.exn6hxy.mongodb.net"; // Replace with your MongoDB connection URL
-mongoose.connect(url);
-// , { useNewUrlParser: true }
-const con = mongoose.connection;
 
-app.use(express.json());
+// Init Middleware
+app.use(express.json({ extended: false }));
 
-// Connection From Code Commented because already connected from Mongo DB 
-// try {
-//     con.on('open', () => {
-//         console.log('Connected to the database');
-//     })
-// } catch (error) {
-//     console.log("Error: " + error);
-// }
+// Define Routes
+app.use('/api/auth', authrouter);
+app.use('/api/todos', todorouter);
 
 const port = 9000;
+
 app.listen(port, () => {
     console.log('Server started on port ' + port);
 });
-
-
-app.use('/todos',todorouter)
